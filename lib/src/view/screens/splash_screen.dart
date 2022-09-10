@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lernworter/src/view/screens/home_screen.dart';
+import 'package:showcaseview/showcaseview.dart';
 
 import '../../constants/colors.dart';
 
@@ -16,7 +17,13 @@ class _SplashScreenState extends State<SplashScreen> {
   void initState() {
     super.initState();
     Future.delayed(const Duration(seconds: 3),() async{
-      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> const HomeScreen()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ShowCaseWidget(
+          builder: Builder(
+              builder : (context) => const HomeScreen(),
+      ),
+      ),
+
+      ));
     });
   }
 
@@ -26,17 +33,18 @@ class _SplashScreenState extends State<SplashScreen> {
     return  Scaffold(
       backgroundColor: kBgColor,
       body:  Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
             child: Hero(
               tag: "logo",
               child: SizedBox(
-                  width: size.width*0.6,
+                  width: size.width*0.5,
                   child: const Image(image: AssetImage("images/mascot.png",),fit: BoxFit.cover)),
             ),
           ),
-          Center(
-            child: Text("Lernwörter",style: TextStyle(color: kTextColor,fontSize: 20),),
+          const Center(
+            child: Text("Lernwörter",style: TextStyle(color: kTextColor,fontSize: 25,fontFamily: "Andika Bold"),),
           ),
         ],
       ),

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lernworter/src/constants/colors.dart';
+import 'package:lernworter/src/view/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -8,7 +10,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations([
@@ -19,9 +20,10 @@ class MyApp extends StatelessWidget {
       title: 'Lernworter',
       theme: ThemeData(
           primarySwatch: Colors.blue,
-          fontFamily: "Pacifico"
+          scaffoldBackgroundColor: kBgColor,
+          fontFamily: "Andika"
       ),
-   //   home: const SplashScreen(),
+     home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
     );
   }
