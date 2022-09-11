@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lernworter/src/view/screens/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:showcaseview/showcaseview.dart';
 
 import '../../constants/colors.dart';
@@ -16,6 +17,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+
     Future.delayed(const Duration(seconds: 3),() async{
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> ShowCaseWidget(
           builder: Builder(
@@ -24,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
       ),
 
       ));
+
     });
   }
 

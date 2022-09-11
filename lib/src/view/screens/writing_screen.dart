@@ -36,7 +36,7 @@ class _WritingScreenState extends State<WritingScreen> {
               children: [
                 GestureDetector(
                     onTap: (){},
-                    child: Icon(Icons.volume_up,size: 50,color: kTextColor,)),
+                    child: const Icon(Icons.volume_up,size: 50,color: kTextColor,)),
                 const SizedBox(height: 20),
                 Container(
                   decoration: BoxDecoration(

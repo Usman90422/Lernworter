@@ -36,6 +36,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   showcaseview: ^1.1.8
   flutter_animation_progress_bar: ^2.2.1
+  shared_preferences: ^2.0.15
+  provider: ^6.0.3
 
 dev_dependencies:
   flutter_test:

@@ -3,24 +3,31 @@ import 'package:flutter/material.dart';
 import '../constants/colors.dart';
 
 class TextFieldWithButtons extends StatefulWidget {
-   TextFieldWithButtons({
+   const TextFieldWithButtons({
     this.controller,
     required this.hintText,
     this.onTap,
-    this.isEditable,
     Key? key,
+    required this.onDelete,
+     this.onDone,
+
   }) : super(key: key);
 
   final String hintText;
   final TextEditingController? controller;
   final VoidCallback? onTap;
-   bool? isEditable;
+  final VoidCallback? onDone;
+  final VoidCallback onDelete;
+
+
 
   @override
   State<TextFieldWithButtons> createState() => _TextFieldWithButtonsState();
 }
 
 class _TextFieldWithButtonsState extends State<TextFieldWithButtons> {
+
+  bool isEditable=false;
   @override
   Widget build(BuildContext context) {
     var size=MediaQuery.of(context).size;
@@ -41,23 +48,35 @@ class _TextFieldWithButtonsState extends State<TextFieldWithButtons> {
             child: SizedBox(
               width: size.width,
               child:  TextField(
-                enabled: widget.isEditable,
-                onTap: widget.onTap,
+                enabled: isEditable,
+                onEditingComplete: widget.onTap,
                 style: const TextStyle(color: kTextColor),
                 controller: widget.controller,
                 decoration: InputDecoration(
                     hintText: widget.hintText,
-                    hintStyle: TextStyle(color: Colors.black38,fontSize: 12),
+                    hintStyle: const TextStyle(color: kTextColor,fontSize: 12),
                     border: InputBorder.none,
 
                 ),
               ),
             ),
           ),
-          GestureDetector(onTap: (){}, child: const Icon(Icons.edit,color: kTextColor,size: 30,)),
-          GestureDetector(onTap: (){}, child: const Icon(Icons.delete_forever,color: Colors.redAccent,size: 30,)),
+
+          GestureDetector(
+              onTap: (){
+                setState(() {
+                  isEditable=!isEditable;
+                });
+              }, child:  const Icon( Icons.edit,color: kTextColor,size: 30,)),
+
+          GestureDetector(onTap: widget.onDelete,
+          child: const Icon(Icons.delete_forever,color: Colors.redAccent,size: 30,)),
         ],
       ),
     );
   }
 }
+
+
+
+

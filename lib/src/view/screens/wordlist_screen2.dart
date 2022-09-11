@@ -34,7 +34,7 @@ class _WordsListScreen2State extends State<WordsListScreen2> {
                     child: const Image(image: AssetImage("images/mascot.png",),fit: BoxFit.cover)),
               ),
               const SizedBox(height: 16,),
-              TextFieldWithButtons( hintText: "List 1",controller: listNameController,isEditable: false,),
+            //  TextFieldWithButtons( hintText: "List 1",controller: listNameController),
               const SizedBox(height: 16,),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,9 +62,9 @@ class _WordsListScreen2State extends State<WordsListScreen2> {
             });
           },),
 
-              TextFieldWithButtons( hintText: "Word 1",controller: listNameController,isEditable: false),
-              TextFieldWithButtons( hintText: "Word 2",controller: listNameController,isEditable: false),
-              TextFieldWithButtons( hintText: "Word 3",controller: listNameController,isEditable: false),
+              // TextFieldWithButtons( hintText: "Word 1",controller: listNameController),
+              // TextFieldWithButtons( hintText: "Word 2",controller: listNameController),
+              // TextFieldWithButtons( hintText: "Word 3",controller: listNameController),
 
             ],
           ),

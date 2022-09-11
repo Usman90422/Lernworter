@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:lernworter/src/constants/colors.dart';
+import 'package:lernworter/src/provider/getPrefs_provider.dart';
 import 'package:lernworter/src/view/screens/splash_screen.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +18,11 @@ class MyApp extends StatelessWidget {
       DeviceOrientation.portraitUp,
       DeviceOrientation.portraitDown,
     ]);
-    return MaterialApp(
+    return MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (context) => GetPrefs()),
+        ],
+      child : MaterialApp(
       title: 'Lernworter',
       theme: ThemeData(
           primarySwatch: Colors.blue,
@@ -25,7 +31,7 @@ class MyApp extends StatelessWidget {
       ),
      home: const SplashScreen(),
       debugShowCheckedModeBanner: false,
-    );
+    ));
   }
 }
 
